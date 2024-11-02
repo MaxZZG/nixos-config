@@ -1,0 +1,14 @@
+
+首先在 `configuration.nix` 中添加
+
+```bash
+nix.settings.experimental-features = [ "nix-command" "flakes" ];
+```
+
+```bash
+nixos-generate-config --show-hardware-config > ./hosts/hardware-configuration.nix
+
+sudo nixos-rebuild switch --flake .#laptop --option substituters https://mirrors.ustc.edu.cn/nix-channels/store
+```
+
+其中，laptop 为主机名字，可以替换为 desktop。
