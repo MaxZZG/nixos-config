@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# 状态浮层:Mod+Alt+T 触发,用 notify-send 弹时间/电量/音量,自动消失
+# 此文件由 home.nix 的 writeShellScriptBin(builtins.readFile)读入生成可执行文件
+clock=$(date '+%H:%M:%S  %A %Y-%m-%d')
+bat_path=$(ls -d /sys/class/power_supply/BAT* 2>/dev/null | head -n1)
+if [ -n "$bat_path" ]; then
+  cap=$(cat "$bat_path/capacity" 2>/dev/null)
+  st=$(cat "$bat_path/status" 2>/dev/null)
+  batinfo="电量 $cap% ($st)"
+else
+  batinfo="交流供电(无电池)"
+fi
+vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null | awk '{print $2}')
+if wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null | grep -q MUTED; then
+  vol="$vol (静音)"
+fi
+notify-send -a "状态" "🕐 $clock" "🔋 $batinfo
+🔊 音量 $vol"
