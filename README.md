@@ -1,9 +1,9 @@
 
 
 ```bash
-nixos-generate-config --dir ./hosts/hostname && rm ./hosts/hostname/configuration.nix
+nixos-generate-config --dir ./hosts/laptop && rm ./hosts/laptop/configuration.nix
 
-sudo nixos-rebuild switch --flake .#hostname --option substituters https://mirrors.ustc.edu.cn/nix-channels/store
+sudo nixos-rebuild switch --flake .#laptop --option substituters https://mirrors.ustc.edu.cn/nix-channels/store
 ```
 
-其中，hostname 替换为 laptop 或者 desktop。
+其中，laptop 为主机名字，可以替换为 desktop。
