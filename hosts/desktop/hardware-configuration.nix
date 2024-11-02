@@ -1,0 +1,1 @@
+# Empty. Generate a new one by nixos-generate-config.

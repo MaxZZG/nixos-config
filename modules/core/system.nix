@@ -17,7 +17,7 @@
   time.timeZone = "Asia/Shanghai";
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    extraLocalSettings = {
+    extraLocaleSettings = {
       LC_ADDRESS = "zh_CN.UTF-8";
       LC_IDENTIFICATION = "zh_CN.UTF-8";
       LC_MEASUREMENT = "zh_CN.UTF-8";
