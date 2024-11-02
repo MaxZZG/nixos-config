@@ -3,7 +3,6 @@
   imports = [
     ./bootloader.nix
     ./hardware.nix
-    ./xserver.nix
     ./network.nix
     ./gc.nix
     ./pipewire.nix
