@@ -2,7 +2,6 @@
 {
   imports = [
     ./bootloader.nix
-    ./hardware.nix
     ./network.nix
     ./gc.nix
     ./pipewire.nix
