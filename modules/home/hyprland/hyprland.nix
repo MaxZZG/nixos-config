@@ -5,7 +5,12 @@
     enable = true;
 
     extraConfig = builtins.readFile ./hyprland.conf;
-    # gammastep/wallpaper-switcher need this to be enabled.
+
+    plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
+      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprlock
+    ];
+
     systemd = {
       enable = true;
       variables = ["--all"];
