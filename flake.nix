@@ -21,7 +21,7 @@
     };
   };
 
-  outputs = { nixpkgs, self, ...} @ inputs:
+  outputs = { nixpkgs, self, hyprland, ...} @ inputs:
   let
     username = "max";
     system = "x86_64-linux";
@@ -35,12 +35,18 @@
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ ./hosts/desktop ];
+        modules = [
+          hyprland.homeManagerModules.default 
+          ./hosts/desktop
+        ];
         specialArgs = { host="desktop"; inherit self inputs username ; };
       };
       laptop = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ ./hosts/laptop ];
+        modules = [ 
+          hyprland.homeManagerModules.default
+          ./hosts/laptop
+        ];
         specialArgs = { host="laptop"; inherit self inputs username ; };
       };
     };
