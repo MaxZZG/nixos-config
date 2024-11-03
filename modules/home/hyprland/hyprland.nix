@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 {
   programs.kitty.enable = true; 
   wayland.windowManager.hyprland = {
