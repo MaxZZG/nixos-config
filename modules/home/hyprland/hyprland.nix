@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }:
 {
-  programs.kitty.enable = true; 
+  programs.kitty.enable = true;
+  programs.hyprlock.enable = true;
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -8,7 +9,6 @@
 
     plugins = [
       inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
-      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprlock
     ];
 
     systemd = {
