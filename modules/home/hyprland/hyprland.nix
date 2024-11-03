@@ -10,5 +10,5 @@
       enable = true;
       variables = ["--all"];
     };
-  } 
+  };
 }
