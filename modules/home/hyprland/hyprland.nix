@@ -8,7 +8,7 @@
     extraConfig = builtins.readFile ./hyprland.conf;
 
     plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
+      #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
     ];
 
     systemd = {
