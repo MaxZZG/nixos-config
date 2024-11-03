@@ -1,14 +1,11 @@
 { inputs, pkgs, ... }:
 {
   programs.kitty.enable = true;
+  systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
     enable = true;
 
     extraConfig = builtins.readFile ./hyprland.conf;
-
-    plugins = [
-      #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
-    ];
 
     systemd = {
       enable = true;
