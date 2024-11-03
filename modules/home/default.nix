@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
-    ./git.nix
     ./hyprland
+    ./git.nix
+    ./programs.nix
   ];
 }
