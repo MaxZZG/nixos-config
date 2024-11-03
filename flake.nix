@@ -6,7 +6,7 @@
   
     hyprland = {
       type = "git";
-      url = "github:hyprwm/Hyprland";
+      url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
     };
   
