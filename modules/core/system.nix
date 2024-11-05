@@ -37,7 +37,7 @@
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Recursive Mono Nerd Font" ]; })
+    (nerdfonts.override { fonts = [ "Recursive" ]; })
   ];
 
   nixpkgs.config.allowUnfree = true;
