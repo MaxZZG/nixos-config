@@ -36,6 +36,10 @@
     };
   };
 
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "Recursive Mono Nerd Font" ]; })
+  ];
+
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "24.11";
 }

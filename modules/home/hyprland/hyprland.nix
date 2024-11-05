@@ -1,9 +1,5 @@
 { inputs, pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    nerdfonts
-  ];
-
   programs.kitty = {
     enable = true;
     font = {
