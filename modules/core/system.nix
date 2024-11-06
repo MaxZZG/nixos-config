@@ -40,7 +40,7 @@
     (nerdfonts.override { fonts = [ "Recursive" ]; })
   ];
 
-  fontconfig = {
+  fonts.fontconfig = {
     defaultFonts = {
       monospace = [ "Recursive" ];
     };
