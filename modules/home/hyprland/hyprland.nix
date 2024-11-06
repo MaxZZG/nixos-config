@@ -3,7 +3,7 @@
   programs.kitty = {
     enable = true;
     font = {
-        name = "Recursive";
+        name = "RecMonoCasual Nerd Font Mono";
         size = 12;
       };
   };
