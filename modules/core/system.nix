@@ -40,6 +40,12 @@
     (nerdfonts.override { fonts = [ "Recursive" ]; })
   ];
 
+  fontconfig = {
+    defaultFonts = {
+      monospace = [ "Recursive" ];
+    };
+  };
+
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "24.11";
 }
