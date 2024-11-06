@@ -4,7 +4,7 @@
     enable = true;
     font = {
         name = "RecMonoCasual Nerd Font Mono";
-        size = 12;
+        size = 14;
       };
   };
 
