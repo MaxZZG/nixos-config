@@ -11,8 +11,7 @@
           comment = "zzgdar@163.com";
         }
       ];
-    }
-    
+    };
   };
   services.logind.extraConfig = ''
     # don’t shutdown when power button is short-pressed
