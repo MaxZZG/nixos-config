@@ -3,9 +3,9 @@
   programs.kitty = {
     enable = true;
     font = {
-        name = "RecMonoCasual Nerd Font Mono";
-        size = 14;
-      };
+      name = "RecMonoCasual Nerd Font Mono";
+      size = 14;
+    };
   };
 
   wayland.windowManager.hyprland = {
@@ -15,7 +15,7 @@
 
     systemd = {
       enable = true;
-      variables = ["--all"];
+      variables = [ "--all" ];
     };
   };
 }
