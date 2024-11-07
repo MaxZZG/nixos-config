@@ -6,7 +6,7 @@
     # DEV
     clang
     cmake
-    make
+    gnumake
     lldb
   ];
 }
