@@ -9,7 +9,6 @@
 
   environment.systemPackages = with pkgs; [
     git
-    nixfmt-rfc-style
   ];
 
   time.timeZone = "Asia/Shanghai";
