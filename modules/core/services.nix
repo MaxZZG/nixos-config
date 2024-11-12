@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 {
   services = {
     openssh = {
@@ -7,11 +7,13 @@
 
     greetd = {
       enable = true;
-      {
-  default_session = {
-    command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
-  };
-}
+      vt = 3;
+      settings = {
+        default_session = {
+          user = username;
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        };
+      };
     };
   };
   services.logind.extraConfig = ''
