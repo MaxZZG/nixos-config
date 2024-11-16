@@ -11,7 +11,7 @@
       settings = {
         default_session = {
           user = username;
-          command = "${config.programs.regreet.package}/bin/regreet --time --cmd Hyprland";
+          command = "${config.programs.regreet.package}/bin/regreet; Hyprland";
         };
       };
     };
