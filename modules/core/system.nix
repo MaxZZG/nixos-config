@@ -39,9 +39,10 @@
     };
   };
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Recursive" ]; })
-  ];
+# After 25.05 (Not fully completed and officially released yet)
+fonts.packages = with pkgs; [
+  nerd-fonts.recursive
+];
 
   fonts.fontconfig = {
     defaultFonts = {
