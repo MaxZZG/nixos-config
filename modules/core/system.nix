@@ -41,7 +41,7 @@
 
 # After 25.05 (Not fully completed and officially released yet)
 fonts.packages = with pkgs; [
-  nerd-fonts.recursive
+  nerd-fonts.recursive-mono
 ];
 
   fonts.fontconfig = {
@@ -51,5 +51,5 @@ fonts.packages = with pkgs; [
   };
 
   nixpkgs.config.allowUnfree = true;
-  system.stateVersion = "25.03";
+  system.stateVersion = "25.05";
 }
