@@ -13,6 +13,7 @@
   environment.systemPackages = with pkgs; [
     git
     greetd.tuigreet
+    hypridle
   ];
 
   time.timeZone = "Asia/Shanghai";
