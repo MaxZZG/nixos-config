@@ -5,6 +5,10 @@
       enable = true;
     };
 
+    hypridle = {
+      enable = true;
+      extraConfig = builtins.readFile ../home/hyprland/hypridle.conf;
+    };
 
     greetd = {
       enable = true;
