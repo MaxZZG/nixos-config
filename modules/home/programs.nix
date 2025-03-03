@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     fastfetch
+    vscode
 
     # DEV
     clang

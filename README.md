@@ -1,4 +1,9 @@
 
+首先在 `configuration.nix` 中添加
+
+```bash
+nix.settings.experimental-features = [ "nix-command" "flakes" ];
+```
 
 ```bash
 nixos-generate-config --dir ./hosts/laptop && rm ./hosts/laptop/configuration.nix
