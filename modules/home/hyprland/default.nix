@@ -2,6 +2,6 @@
 {
   imports = [
     ./hyprland.nix
-    ./hyprlock.nix
+    ./hyprPlugins.nix
   ];
 }
