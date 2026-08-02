@@ -19,6 +19,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    rime-wanxiang = {
+      url = "github:amzxyz/RIME-wanxiang";
+      flake = false;
+    };
   };
 
   outputs =

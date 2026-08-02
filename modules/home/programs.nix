@@ -1,10 +1,28 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    # System Info
     fastfetch
-    vscode
+
+    # Browser
+    firefox
+
+    # Hyprland Ecosystem
+    waybar
+    wofi
+    dolphin
+    swww
+    dunst
+    playerctl
+    brightnessctl
+    hyprpicker
+    hyprshot
+
+    # Clipboard
+    wl-clipboard
 
     # DEV
+    vscode
     clang
     cmake
     gnumake
