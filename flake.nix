@@ -2,7 +2,7 @@
   description = "Max's nixos configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.11";
 
     hyprland = {
       type = "git";
@@ -16,7 +16,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-26.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -36,10 +36,8 @@
     let
       username = "max";
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
+      # 统一通过 specialArgs 传递所有参数，消除 extraSpecialArgs 双轨
+      inherit inputs username;
     in
     {
       nixosConfigurations = {
@@ -50,7 +48,7 @@
           ];
           specialArgs = {
             host = "desktop";
-            inherit self inputs username;
+            inherit inputs username;
           };
         };
         laptop = nixpkgs.lib.nixosSystem {
@@ -60,7 +58,7 @@
           ];
           specialArgs = {
             host = "laptop";
-            inherit self inputs username;
+            inherit inputs username;
           };
         };
       };
