@@ -15,6 +15,9 @@
     isNormalUser = true;
     description = "${username}";
     extraGroups = [ "wheel" "networkmanager" ];
+    # 初始密码：仅当账户当前无密码时生效（不会覆盖已通过 TTY 设置的密码）。
+    # 部署后用 `passwd` 修改更安全，避免在配置里明文存密码。
+    initialPassword = "max123";
   };
 
   home-manager = {

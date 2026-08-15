@@ -9,6 +9,11 @@
   services.greetd = {
     enable = true;
     settings = {
+      # 开机自动登录：greetd 直接以 max 身份启动 Hyprland，不弹登录框
+      initial_session = {
+        command = "${pkgs.hyprland}/bin/Hyprland";
+        user = "max";
+      };
       default_session = {
         command = "${pkgs.hyprland}/bin/Hyprland";
         user = "max";
