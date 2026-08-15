@@ -1,0 +1,33 @@
+{ inputs, username, host, ... }:
+{
+  imports = [
+    # 硬件配置（必须在目标机器用 nixos-generate-config 生成，见同目录模板）
+    ./hardware-configuration.nix
+    # 系统侧全部（base + 各功能 nixos 侧，自动发现，无需逐个列出）
+    ../modules/system
+    # home-manager 集成
+    inputs.home-manager.nixosModules.home-manager
+  ];
+
+  networking.hostName = "${host}";
+
+  users.users.${username} = {
+    isNormalUser = true;
+    description = "${username}";
+    extraGroups = [ "wheel" "networkmanager" ];
+  };
+
+  home-manager = {
+    useUserPackages = true;
+    useGlobalPkgs = true;
+    users.${username} = {
+      imports = [ ../modules/home/default.nix ];
+      home.username = "${username}";
+      home.homeDirectory = "/home/${username}";
+      home.stateVersion = "26.11";
+      programs.home-manager.enable = true;
+    };
+  };
+
+  system.stateVersion = "26.11";
+}
