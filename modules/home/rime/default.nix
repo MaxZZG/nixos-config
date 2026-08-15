@@ -1,4 +1,0 @@
-{ ... }:
-{
-  imports = [ ./rime.nix ];
-}
