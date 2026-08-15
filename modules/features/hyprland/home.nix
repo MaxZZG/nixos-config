@@ -19,6 +19,16 @@
       env = [
         "XCURSOR_SIZE,24"
       ];
+      # 主修饰键（Win 键）
+      "$mainMod" = "SUPER";
+      # 快捷键绑定
+      bind = [
+        "$mainMod, RETURN, exec, kitty"   # Super+Enter 打开终端
+        "$mainMod, Q, killactive"         # Super+Q 关闭当前窗口
+      ];
     };
   };
+
+  # 安装终端程序（kitty，原生支持 Wayland）
+  home.packages = [ pkgs.kitty ];
 }
