@@ -6,7 +6,7 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
 ```
 
 ```bash
-nixos-generate-config --dir ./hosts/laptop && rm ./hosts/laptop/configuration.nix
+nixos-generate-config --show-hardware-config > ./hosts/hardware-configuration.nix
 
 sudo nixos-rebuild switch --flake .#laptop --option substituters https://mirrors.ustc.edu.cn/nix-channels/store
 ```

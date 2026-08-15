@@ -24,10 +24,10 @@
       imports = [ ../modules/home/default.nix ];
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
-      home.stateVersion = "26.11";
+      home.stateVersion = "26.05";
       programs.home-manager.enable = true;
     };
   };
 
-  system.stateVersion = "26.11";
+  system.stateVersion = "26.05";
 }
