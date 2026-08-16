@@ -1,5 +1,5 @@
 -- Hyprland Lua 配置（独立文件，由 home-manager 部署到 ~/.config/hypr/config.lua）
--- 通过 features/hyprland/nixos.nix 里的 wrapper 设置 HYPRLAND_CONFIG 强制加载本文件。
+-- 实际加载由 features/hyprland/nixos.nix 通过 HYPRLAND_CONFIG 指定。
 -- 参考官方示例：https://wiki.hypr.land/Configuring/Start/
 
 local mainMod = "SUPER"
@@ -26,6 +26,15 @@ hl.config({
     layout = "dwindle",
   },
 })
+
+-----------------------
+---- AUTOSTART --------
+-----------------------
+-- 在 Hyprland 启动时拉起状态栏与通知守护（& 让其在后台运行）
+hl.on("hyprland.start", function ()
+  hl.exec_cmd("waybar &")
+  hl.exec_cmd("dunst &")
+end)
 
 -----------------------
 ---- KEYBINDINGS ------
