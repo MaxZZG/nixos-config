@@ -1,0 +1,15 @@
+# Rime 全局定制档
+#
+# 关于 .custom.yaml：Rime 升级时会覆写 default.yaml 等预设文件，
+# 但不会动 *.custom.yaml —— 定制内容必须写在这里才不会丢失。
+# 修改后需「重新部署」才生效。
+
+patch:
+  # 默认输入方案列表。
+  # 只用 luna_pinyin_simp（朙月拼音·简化字）：
+  # 该方案用独立开关 zh_simp 且 reset: 1，开箱即输出简体。
+  #
+  # 注意：不列 luna_pinyin，是为了避免在方案选单里误切到繁体方案。
+  # 若以后想启用五笔/双拼等，在此按同样格式追加即可。
+  schema_list:
+    - schema: luna_pinyin_simp

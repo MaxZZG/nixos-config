@@ -1,0 +1,18 @@
+# 朙月拼音（luna_pinyin）定制档
+#
+# 兜底：万一以后把 luna_pinyin 加回方案选单并切换过去，也让它输出简体。
+#
+# 原理：luna_pinyin 的 switches 列表为
+#   @0 ascii_mode（中/西文）
+#   @1 full_shape（全/半角）
+#   @2 simplification（繁简转换），states 为 [ 漢字, 汉字 ]
+#
+# reset 用于指定初始状态：0=第一项（漢字，繁体），1=第二项（汉字，简体）。
+# 官方原话：「Rime 会记忆您的选择，下次打开输入法时、直接切换到所选的字形。」
+# 所以不显式设置 reset 的话，会沿用上次手动切换的状态 —— 这正是默认繁体的原因。
+#
+# 这里只补丁单个元素的 reset，而非替换整个 switches 列表，
+# 好处是保留上游 switches 的其他定义，升级时不易失效。
+
+patch:
+  "switches/@2/reset": 1
