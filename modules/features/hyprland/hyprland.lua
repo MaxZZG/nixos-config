@@ -42,23 +42,12 @@ hl.env("CLUTTER_BACKEND", "wayland")
 -- Electron 应用默认走 X11，设为 1 提示其使用 Wayland
 hl.env("NIXOS_OZONE_WL", "1")
 
+-- 让 Firefox 走原生 Wayland（配合 fcitx5 的 text-input-v3 前端才能在光标处弹候选窗）
+hl.env("MOZ_ENABLE_WAYLAND", "1")
+
 -- 光标
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-
--------------------
----- 自启动 ----
--------------------
--- 会话级服务（输入法、通知等）依赖 graphical-session.target，
--- 该 target 由 home-manager 的 systemd 集成拉起，这里无需手动处理。
---
--- 需要自启动普通程序时，取消下面注释并按需要增删：
--- hl.on("hyprland.start", function()
---     hl.exec_cmd("waybar")
---     hl.exec_cmd("hyprpaper")
--- end)
---
--- 注意：hl.exec_cmd() 是异步的，末尾不需要加 &
 
 -----------------------
 ---- 外观与行为 ----
