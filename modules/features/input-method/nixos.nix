@@ -31,9 +31,13 @@
   };
 
   # 自启动：用打过补丁的 fcitx5 包，进入图形会话后自动拉起。
+  # ⚠️ 顺序很关键：必须等 graphical-session.target 完成(即 niri 已就绪、
+  #    并把 WAYLAND_DISPLAY 导入 systemd 用户环境)之后再启动 fcitx5，
+  #    否则 fcitx5 的 Wayland 前端连不上，原生应用就拿不到中文输入。
+  #    之前的 after = graphical-session-pre.target 会和 niri 并行启动而抢输竞态。
   systemd.user.services.fcitx5 = {
     description = "Fcitx5 input method framework";
-    after = [ "graphical-session-pre.target" ];
+    after = [ "graphical-session.target" ];
     partOf = [ "graphical-session.target" ];
     wantedBy = [ "graphical-session.target" ];
     serviceConfig = {
