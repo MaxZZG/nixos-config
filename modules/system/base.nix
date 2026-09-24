@@ -1,5 +1,14 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, host, ... }:
 {
+  # 主机名 = hosts/ 下的目录名（flake 通过 specialArgs.host 传入）
+  networking.hostName = host;
+
+  # 系统状态版本：与安装时机绑定，确定后不要再改
+  system.stateVersion = "26.05";
+
+  # Wayland / OpenGL 图形栈（所有机器都需要）
+  hardware.graphics.enable = true;
+
   # 启用 flakes 与 nix-command
   nix = {
     settings = {
