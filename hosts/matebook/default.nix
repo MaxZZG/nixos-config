@@ -13,7 +13,7 @@
   # 华为 MateBook E 2017 专属硬件配置
   # 机型 = Intel Kaby Lake(m3-7Y30 / i5-7Y54)的 12" 可拆卸 2-in-1,
   # 2160x1440 3:2 触控屏 + 可拆键盘坞。键盘坞无独立音量/亮度键,
-  # 已在 niri 里用 Mod+Alt+方向键 兜底(见 modules/features/niri/config.kdl)。
+  # 已在 niri 里用 Mod+方向键 兜底(↑↓=音量 ←→=亮度,见 modules/features/niri/config.kdl)。
   # =====================================================================
 
   # --- 固件:Intel WiFi / 蓝牙 / 核显微码等(开源可再分发固件)---

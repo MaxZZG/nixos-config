@@ -2,7 +2,7 @@
 // 文档: https://niri-wm.github.io/niri/Configuration:-Introduction
 //
 // ⚠️ 重要:binds 段不会被默认值自动补全(这是 niri 少数「省略即不填充默认」的段),
-//    所以下面保留了完整的默认快捷键,只把「终端 / 启动器」改成你已安装的 kitty / wofi。
+//    所以下面保留了完整的默认快捷键,只把「终端 / 启动器」改成你已安装的 alacritty / wofi。
 //    若自行删减行,请确认不会丢掉你要用的快捷键。
 
 // 自启动 OSD 守护:音量 / 亮度浮动进度条,调节后自动淡出消隐
@@ -96,9 +96,9 @@ binds {
     // Mod = 在 TTY 下为 Super,作为窗口运行时为 Alt
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    // 终端 / 启动器:改成已安装的 kitty / wofi
-    Mod+T hotkey-overlay-title="打开终端: kitty" { spawn "kitty"; }
-    Mod+Return hotkey-overlay-title="打开终端: kitty" { spawn "kitty"; }
+    // 终端 / 启动器:改成已安装的 alacritty / wofi
+    Mod+T hotkey-overlay-title="打开终端: alacritty" { spawn "alacritty"; }
+    Mod+Return hotkey-overlay-title="打开终端: alacritty" { spawn "alacritty"; }
     Mod+SPACE hotkey-overlay-title="应用启动器: wofi" { spawn "wofi" "--show" "drun"; }
     Super+Alt+L hotkey-overlay-title="锁屏: swaylock" { spawn "swaylock"; }
 
@@ -107,7 +107,7 @@ binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
     XF86AudioMute allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
     // 麦克风静音保持 wpctl(不开条)
-    XF86AudioMicMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioMicMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
     // 媒体键(playerctl,需安装 playerctl)
     XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
@@ -119,6 +119,15 @@ binds {
     // 亮度(swayosd-client:改值 + 弹浮动进度条;底层仍靠 brightnessctl 读写背光)
     XF86MonBrightnessUp allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "lower"; }
+
+    Mod+Alt+U     allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
+    Mod+Alt+D     allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
+    Mod+Alt+M     allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+    Mod+Alt+Left  allow-when-locked=true { spawn "swayosd-client" "--brightness" "lower"; }
+    Mod+Alt+Right allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
+
+    // 电池电量
+    Mod+Alt+A allow-when-locked=true { spawn-sh "swayosd-client --custom-message \"电量: $(c=$(cat /sys/class/power_supply/BAT*/capacity 2>/dev/null | head -n1); echo ${c:-无电池})%\""; }
 
     Mod+O repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }

@@ -1,0 +1,57 @@
+# =============================================================
+# alacritty 终端配置
+# 由 home-manager 读入，生成到 ~/.config/alacritty/alacritty.toml
+# alacritty 会在配置变更时自动热重载，无需手动发信号
+# =============================================================
+
+# ---------- 字体 ----------
+# RecMonoCasual Nerd Font（已在 fonts/nixos.nix 安装）
+# 中文会由 fontconfig 回退到 Noto Sans CJK
+font.normal = { family = "RecMonoCasual Nerd Font", style = "Regular" }
+font.bold = { family = "RecMonoCasual Nerd Font", style = "Bold" }
+font.italic = { family = "RecMonoCasual Nerd Font", style = "Italic" }
+font.bold_italic = { family = "RecMonoCasual Nerd Font", style = "Bold Italic" }
+font.size = 14.0
+
+# ---------- 光标 ----------
+cursor.style = { shape = "Beam", blinking = "On" }
+
+# ---------- 窗口 ----------
+# 由合成器绘制边框 / 圆角，niri 下更协调（等价于 kitty 的 hide_window_decorations）
+window.decorations = "None"
+
+# ---------- 滚动 ----------
+scrolling.history = 10000
+
+# ---------- 配色（Tokyo Night 风格）----------
+[colors.primary]
+foreground = "#c0caf5"
+background = "#1a1b26"
+
+[colors.cursor]
+text = "#1a1b26"
+cursor = "#7fc8ff"
+
+[colors.selection]
+text = "#1a1b26"
+background = "#33467c"
+
+[colors.normal]
+black = "#15161e"
+red = "#f7768e"
+green = "#9ece6a"
+yellow = "#e0af68"
+blue = "#7aa2f7"
+magenta = "#bb9af7"
+cyan = "#7dcfff"
+white = "#a9b1d6"
+
+[colors.bright]
+black = "#414868"
+red = "#f7768e"
+green = "#9ece6a"
+yellow = "#e0af68"
+blue = "#7aa2f7"
+magenta = "#bb9af7"
+cyan = "#7dcfff"
+white = "#c0caf5"
