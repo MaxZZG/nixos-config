@@ -2,7 +2,7 @@
 # 本机 host：<在此写机型/型号备注,例如 AMD 740M + RTX 3050 笔记本>
 # 目录名 = 主机名(构建：sudo nixos-rebuild switch --flake .#mechrevo)
 # =============================================================
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 {
   imports = [
     # 1) 本机硬件(在该机器上生成后覆盖本文件,见同目录模板/注释)
@@ -64,6 +64,8 @@
     cudaPackages.cudatoolkit # nvcc + libcudart/cublas 等运行时
     cudaPackages.cudnn # 深度学习常用(可选)
     moonlight-qt # 远程串流客户端(连 Windows 端的 Sunshine 进行远程工作)
+    obs-studio   # 录屏/直播
+    qemu         # 虚拟机(含 qemu-system-x86_64 等)
   ];
 
   # 让非 nix 构建的 CUDA 程序(如 pip 装的 torch)也能找到 libcuda
@@ -77,4 +79,10 @@
     HandleLidSwitchExternalPower = "ignore";
     HandleLidSwitchDocked = "ignore";
   };
+
+  # ===================== qemu / KVM 虚拟机支持 =====================
+  virtualisation.libvirtd.enable = true; # 开启 libvirtd,管理 KVM 虚拟机
+  # 让本机用户能直接用 /dev/kvm 与 libvirt,无需每条命令 sudo
+  # extraGroups 为 list 类型,会与 user.nix 里的 [ wheel networkmanager ] 自动合并
+  users.users.${username}.extraGroups = [ "kvm" "libvirtd" ];
 }
