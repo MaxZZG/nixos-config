@@ -18,7 +18,7 @@
     useUserPackages = true;
     useGlobalPkgs = true;
     users.${username} = {
-      imports = [ ../home/default.nix ];
+      imports = [ ../home/default.nix (inputs.nixvim.homeModules.nixvim or inputs.nixvim.homeModules.default) ];
       home.username = username;
       home.homeDirectory = "/home/${username}";
       home.stateVersion = "26.05";
