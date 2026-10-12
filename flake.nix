@@ -8,6 +8,11 @@
       url = "git+https://git.nju.edu.cn/nix-mirror/home-manager.git?ref=master&shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # 声明式 Neovim 框架:用 Nix 完全控制 Neovim(插件也由 Nix 构建、可复现)
+    nixvim = {
+      url = "git+https://git.nju.edu.cn/nix-mirror/nixvim.git?ref=main&shallow=1";
+    };
   };
 
   outputs =

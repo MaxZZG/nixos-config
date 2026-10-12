@@ -107,11 +107,11 @@ binds {
     Super+Alt+L hotkey-overlay-title="锁屏: swaylock" { spawn "swaylock"; }
 
     // 音量(swayosd-client:改值 + 弹浮动进度条,调完自动消隐)
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
-    XF86AudioMute allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+    XF86AudioRaiseVolume hotkey-overlay-title="声音+" allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
+    XF86AudioLowerVolume hotkey-overlay-title="声音-" allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
+    XF86AudioMute hotkey-overlay-title="静音" allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
     // 麦克风静音保持 wpctl(不开条)
-    XF86AudioMicMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioMicMute hotkey-overlay-title="关闭麦克风" allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
     // 媒体键(playerctl,需安装 playerctl)
     XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
@@ -121,8 +121,8 @@ binds {
     XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next"; }
 
     // 亮度(swayosd-client:改值 + 弹浮动进度条;底层仍靠 brightnessctl 读写背光)
-    XF86MonBrightnessUp allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "lower"; }
+    XF86MonBrightnessUp hotkey-overlay-title="亮度+" allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
+    XF86MonBrightnessDown hotkey-overlay-title="亮度-" allow-when-locked=true { spawn "swayosd-client" "--brightness" "lower"; }
 
     Mod+Alt+U     allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
     Mod+Alt+D     allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
@@ -131,7 +131,7 @@ binds {
     Mod+Alt+Right allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
 
     // 状态浮层(时间 / 电量 / 音量),notify-send 弹出后自动消失
-    Mod+Alt+T allow-when-locked=true { spawn "status-osd"; }
+    Mod+Alt+T hotkey-overlay-title="显示通知" allow-when-locked=true { spawn "status-osd"; }
 
     Mod+O repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
